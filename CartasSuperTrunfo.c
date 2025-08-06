@@ -63,8 +63,12 @@ int main() {
     float densidade2 = (float)populacao2 / area2; //variavel para densidade populacional carta 2
 
     //variáveis para o pib per capta
-    float percapta1 = (float)pib1 / populacao1; //variavel para pib per capta carta 1
-    float percapta2 = (float)pib2 / populacao2; //variavel para pib per capta carta 2
+    float percapta1 = (float)(pib1 * 1000000000.0f) / populacao1; //variavel para pib per capta carta 1
+    float percapta2 = (float)(pib2 * 1000000000.0f) / populacao2; //variavel para pib per capta carta 2
+
+    //declarando variáveis de super poder
+    float super_poder1 = populacao1 + area1 + pib1 + pontos1 + densidade1 + (1.0f / densidade1);
+    float super_poder2 = populacao2 + area2 + pib2 + pontos2 + densidade2 + (1.0f / densidade2);
 
     //Mostrando os dados das cartas cadastradas
     //Carta 1
@@ -78,6 +82,7 @@ int main() {
     printf("Pontos turísticos: %d\n", pontos1);
     printf("Densidade populacional: %.2f hab/km²\n", densidade1); //mostrando densidade populacional
     printf("PIB per Capta: %.2f\n", percapta1); //mostrando PIB per Capta
+    printf("Super poder: %.2f\n", super_poder1); //mostrando super poder
 
     //Carta 2
     printf("\nCarta 2:\n");
@@ -90,11 +95,23 @@ int main() {
     printf("Pontos turísticos: %d\n", pontos2);
     printf("Densidade populacional: %.2f hab/km²\n", densidade2); //mostrando densidade populacional
     printf("PIB per Capta: %.2f\n", percapta2); //mostrando PIB per Capta
+    printf("Super poder: %.2f\n", super_poder2); //mostrando super poder
 
-
-
-
-
+    //comparando as cartas
+    //população maior vence
+    printf("\nPopulação: Carta 1 venceu (%d)\n", populacao1 > populacao2 ? 1 : 0);
+    //área maior vence
+    printf("Área: Carta 1 venceu (%d)\n", area1 > area2 ? 1 : 0);
+    //pib maior vence
+    printf("PIB: Carta 1 venceu (%d)\n", pib1 > pib2 ? 1 : 0);
+    //pontos turísticos maior vence
+    printf("Pontos turisticos: Carta 1 venceu (%d)\n", pontos1 > pontos2 ? 1: 0);
+    //densidade populacional menor vence
+    printf("Densidade populacional: Carta 1 venceu (%d)\n", densidade1 < densidade2 ? 1 : 0);
+    //Pib percapta maior vence
+    printf("Pib PerCapta: Carta 1 venceu (%d)\n", percapta1 > percapta2 ? 1 : 0);
+    //Super poder maior vence
+    printf("Super Poder: Carta 1 venceu (%d)\n", super_poder1 > super_poder2 ? 1 : 0);
 
 
 
